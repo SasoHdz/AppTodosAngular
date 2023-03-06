@@ -14,3 +14,16 @@ input:hover {
 -webkit-box-shadow: 1px 9px 27px 0px rgba(0,50,227,0.61);
 -moz-box-shadow: 1px 9px 27px 0px rgba(0,50,227,0.61);
 }
+
+.bi {
+  font-size: 1.2rem;
+}
+
+.bi-check-circle-fill:hover {
+  color: green;
+}
+
+.bi-trash-fill:hover {
+  color: red;
+}
+

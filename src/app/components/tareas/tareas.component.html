@@ -2,11 +2,20 @@
   <div class="container">
       <div class="row">
           <div class="col-lg-6 offset-lg-2 mt-5">
-              <input type="text" class="form-control-lg" placeholder="Ingrese Tarea">
+              <input [(ngModel)]="nameTodo" (keyup.enter)="addTodo()" type="text" class="form-control-lg" placeholder="Ingrese Tarea">
           </div>
-          <div class="col-lg-6 offset-lg-3 mt-5">
+          <div *ngIf="todoList.length>0; else todoEmpty" class="col-lg-6 offset-lg-3 mt-5 list-group">
+            <li *ngFor="let t of todoList" class="todos list-group-item">
+              <i class="bi bi-check-circle-fill m-1"></i>
+              <i class="bi bi-trash-fill m-1"></i>
+              <span class="ms-3">{{t.name}}</span>
+            </li>
+          </div>
+          <ng-template #todoEmpty>
+            <div class="col-lg-6 offset-lg-3 mt-5">
               <h6>No hay tareas para mostrar</h6>
-          </div>
+            </div>
+          </ng-template>
       </div>
   </div>
 
