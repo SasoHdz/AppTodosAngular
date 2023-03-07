@@ -27,7 +27,11 @@ export class TareasComponent {
     this.nameTodo = ''
   }
 
-  checkTodo(){
+  deleteTodo(indice:number):void{
+    this.todoList.splice(indice,1);
+  }
 
+  checkTodo(indice:number):void{
+    this.todoList[indice].state = true;
   }
 }

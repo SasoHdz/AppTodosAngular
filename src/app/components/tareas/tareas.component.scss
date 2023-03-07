@@ -19,6 +19,10 @@ input:hover {
   font-size: 1.2rem;
 }
 
+.active {
+  color: greens;
+}
+
 .bi-check-circle-fill:hover {
   color: green;
 }
@@ -27,3 +31,16 @@ input:hover {
   color: red;
 }
 
+.check {
+  text-decoration: line-through;
+}
+
+.todos:hover {
+  border: solid rgba(0,50,227,0.61) 4px;
+  transform: scale(1.1);
+}
+
+.list-group{
+  width: 60%;
+  margin: 0 auto;
+}
