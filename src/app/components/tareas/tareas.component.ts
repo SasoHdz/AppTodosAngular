@@ -10,28 +10,37 @@ import { Tarea } from 'src/app/models/Tarea';
 export class TareasComponent {
   todoList : Tarea[] = [];
   nameTodo = '';
+  keyStorage = 'todos';
 
-  todoTest : Tarea[] = [{name:"hsadsa",state:false},{name:"h",state:false},{name:"hsa",state:false}];
 
   constructor() {
 
   }
 
   ngOnInit():void {
-
+    const localStorageItem = localStorage.getItem(this.keyStorage);
+    if(!localStorageItem){
+      localStorage.setItem(this.keyStorage,JSON.stringify([]));
+    }
+    else {
+      this.todoList = JSON.parse(localStorageItem);
+    }
   }
 
   addTodo(){
     this.todoList.push({name: this.nameTodo, state: false })
     console.log(this.todoList)
     this.nameTodo = ''
+    localStorage.setItem(this.keyStorage, JSON.stringify(this.todoList));
   }
 
   deleteTodo(indice:number):void{
     this.todoList.splice(indice,1);
+    localStorage.setItem(this.keyStorage, JSON.stringify(this.todoList));
   }
 
   checkTodo(indice:number):void{
     this.todoList[indice].state = true;
+    localStorage.setItem(this.keyStorage, JSON.stringify(this.todoList));
   }
 }
